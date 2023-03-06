@@ -1,0 +1,867 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /user/:
+    get:
+      operationId: listCustomUsers
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User1'
+          description: ''
+      tags:
+      - user
+    post:
+      operationId: createCustomUser
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User1'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User1'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User1'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User1'
+          description: ''
+      tags:
+      - user
+  /user/{id}:
+    get:
+      operationId: retrieveCustomUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this custom user.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPassword'
+          description: ''
+      tags:
+      - user
+    put:
+      operationId: updateCustomUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this custom user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPassword'
+          description: ''
+      tags:
+      - user
+    patch:
+      operationId: partialUpdateCustomUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this custom user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPassword'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPassword'
+          description: ''
+      tags:
+      - user
+    delete:
+      operationId: destroyCustomUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this custom user.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - user
+  /student/:
+    get:
+      operationId: listStudents
+      description: ''
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+          description: ''
+      tags:
+      - student
+    post:
+      operationId: createStudent
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Student'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+      tags:
+      - student
+  /student/{id}:
+    get:
+      operationId: retrieveStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+      tags:
+      - student
+    put:
+      operationId: updateStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Student'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+      tags:
+      - student
+    patch:
+      operationId: partialUpdateStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Student'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: ''
+      tags:
+      - student
+    delete:
+      operationId: destroyStudent
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this student.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - student
+  /class/:
+    get:
+      operationId: listSinfs
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sinf'
+          description: ''
+      tags:
+      - class
+    post:
+      operationId: createSinf
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sinf'
+          description: ''
+      tags:
+      - class
+  /class/{id}:
+    get:
+      operationId: retrieveSinf
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this sinf.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sinf'
+          description: ''
+      tags:
+      - class
+    put:
+      operationId: updateSinf
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this sinf.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sinf'
+          description: ''
+      tags:
+      - class
+    patch:
+      operationId: partialUpdateSinf
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this sinf.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Sinf'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sinf'
+          description: ''
+      tags:
+      - class
+    delete:
+      operationId: destroySinf
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this sinf.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - class
+  /daily/:
+    get:
+      operationId: listByDays
+      description: ''
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ByDay'
+          description: ''
+      tags:
+      - daily
+    post:
+      operationId: createByDay
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ByDay'
+          description: ''
+      tags:
+      - daily
+  /daily/{id}:
+    get:
+      operationId: retrieveByDay
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this by day.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ByDay'
+          description: ''
+      tags:
+      - daily
+    put:
+      operationId: updateByDay
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this by day.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ByDay'
+          description: ''
+      tags:
+      - daily
+    patch:
+      operationId: partialUpdateByDay
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this by day.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ByDay'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ByDay'
+          description: ''
+      tags:
+      - daily
+    delete:
+      operationId: destroyByDay
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this by day.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - daily
+  /data/:
+    get:
+      operationId: listDataStudents
+      description: ''
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Data'
+          description: ''
+      tags:
+      - data
+    post:
+      operationId: createDataStudents
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Data'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+          description: ''
+      tags:
+      - data
+  /data/{id}:
+    get:
+      operationId: retrieveDataStudents
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this data students.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+          description: ''
+      tags:
+      - data
+    put:
+      operationId: updateDataStudents
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this data students.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Data'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+          description: ''
+      tags:
+      - data
+    patch:
+      operationId: partialUpdateDataStudents
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this data students.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Data'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Data'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Data'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Data'
+          description: ''
+      tags:
+      - data
+    delete:
+      operationId: destroyDataStudents
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this data students.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - data
+  /token/:
+    post:
+      operationId: createTokenObtainPair
+      description: 'Takes a set of user credentials and returns an access and refresh
+        JSON web
+
+        token pair to prove the authentication of those credentials.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+      tags:
+      - token
+  /refresh/:
+    post:
+      operationId: createTokenRefresh
+      description: 'Takes a refresh type JSON web token and returns an access type
+        JSON web
+
+        token if the refresh token is valid.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+      tags:
+      - refresh
+components:
+  schemas:
+    User1:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          maxLength: 50
+        password:
+          type: string
+          maxLength: 128
+        is_superuser:
+          type: boolean
+        is_staff:
+          type: boolean
+      required:
+      - username
+      - password
+    UserPassword:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        is_staff:
+          type: boolean
+      required:
+      - username
+      - password
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        full_name:
+          type: string
+          maxLength: 60
+        sinf:
+          type: integer
+      required:
+      - full_name
+      - sinf
+    Sinf:
+      type: object
+      properties:
+        group:
+          type: string
+          maxLength: 20
+    ByDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date
+        student_object:
+          type: object
+        weekday:
+          type: string
+          maxLength: 20
+        class_group:
+          type: integer
+      required:
+      - created_at
+      - student_object
+      - class_group
+    Data:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date
+        students_information:
+          type: object
+        weekday:
+          type: string
+          maxLength: 30
+        class_group:
+          type: integer
+      required:
+      - created_at
+      - class_group
+    TokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - username
+      - password
+    TokenRefresh:
+      type: object
+      properties:
+        refresh:
+          type: string
+        access:
+          type: string
+          readOnly: true
+      required:
+      - refresh
