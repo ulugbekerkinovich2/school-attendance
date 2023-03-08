@@ -3,13 +3,16 @@ import json
 import datetime
 from django.db import connections
 
-conn = connections['default']
 
-connections.close_all()
+# connections.close_all()
 
 
 def daily():
+    conn = connections['default']
     with connections['default'].cursor() as cursor:
+        cursor = conn.cursor()
+        # conn = sqlite3.connect('db.sqlite3')
+        # cursor = conn.cursor()
         cursor.execute('SELECT * FROM data_students ORDER BY created_at DESC LIMIT 1')
         row = cursor.fetchone()
 
@@ -46,18 +49,19 @@ def daily():
 
         # Insert the results into the daily table
         cursor.execute(
-            "INSERT OR IGNORE INTO daily (student_object, created_at, weekday, class_group_id) VALUES (?, ?, ?, ?)",
+            "INSERT INTO daily (student_object, created_at, weekday, class_group_id) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING",
             (results_json, created_at, week_names[0], class_id))
         conn.commit()
-        cursor.execute("UPDATE data_students SET weekday = ? WHERE id = ?", (week_names[0], record_id))
+        cursor.execute("UPDATE data_students SET weekday = %s WHERE id = %s", (week_names[0], record_id))
         conn.commit()
-        conn.close()
-
-
+        # cursor.execute("SELECT * FROM data_students")
+        # row2 = cursor.fetchone()
+        # print(row2)
     else:
         print("No records found in data_students table.")
 
-# daily()
+
+daily()
 
 # obj = json.loads(row_json)
 # def weekly():

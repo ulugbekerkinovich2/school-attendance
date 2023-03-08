@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 from datetime import timedelta
-import dj_database_url
 from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -16,7 +15,7 @@ SECRET_KEY = 'django-insecure-31j&25e^@pe3=f@eh64xx2)c1o+9k^w5hubr3s9&mvtgw$e$*%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'https://google.com']
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
 
@@ -48,8 +47,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_cleanup',
     'django_filters',
-    'drf_yasg',
-    'rest_framework_swagger'
 ]
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 
@@ -69,7 +66,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': ['rest_framework.schemas.coreapi.AutoSchema'],
 
 }
-APPEND_SLASH = False
+APPEND_SLASH = True
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -139,7 +136,15 @@ WSGI_APPLICATION = 'davomat.wsgi.application'
 #     }
 # }
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    # 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'adminadmin_a73h',
+        'USER': 'adminadmin',
+        'PASSWORD': '4wpGzo4oPAgnjzIkqvHB11GsgUkxYf2W',
+        'HOST': 'dpg-cg425shmbg5d882tlbe0-a.frankfurt-postgres.render.com',
+        'PORT': '5432',
+    }
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -176,7 +181,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES = (
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static'),
 )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

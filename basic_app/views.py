@@ -79,10 +79,10 @@ class List(generics.ListCreateAPIView):
     filter_backends = [filters.SearchFilter]
     search_fields = ['weekday']
 
-    # def perform_create(self, serializer):
-    #     instance = serializer.save()
-    #     daily()
-    #     return instance
+    def perform_create(self, serializer):
+        instance = serializer.save()
+        daily()
+        return instance
 
 
 class Detail(generics.RetrieveUpdateDestroyAPIView):
