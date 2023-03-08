@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 from datetime import timedelta
+
+import django_heroku
 from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -191,3 +193,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # pip install djangorestframework-swagger
+django_heroku.settings(locals())
