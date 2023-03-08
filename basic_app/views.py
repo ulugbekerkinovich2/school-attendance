@@ -1,15 +1,19 @@
-import datetime
 
-from django.db.models import Q
+from django.db.models.functions import TruncMonth
+from django.db.models import  Count
+from django.shortcuts import render
 from rest_framework import generics
 from rest_framework import filters
-from rest_framework.response import Response
 
 from basic_app import models, serializer
-from davomat_ import daily, daily1
+from basic_app.models import ByDay
+from davomat_ import daily
 
 
 # Create your views here.
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
+
 
 class ListUsers(generics.ListCreateAPIView):
     queryset = models.CustomUser.objects.all()
@@ -49,6 +53,20 @@ class ListBy_Day(generics.ListAPIView):
     filter_backends = [filters.SearchFilter]
     search_fields = ['created_at']
 
+    # def get_queryset(self):
+    #     byday_month = ByDay.objects.annotate(month=TruncMonth('created_at'))
+    #     byday_month_count = byday_month.values('month').annotate(count=Count('id'))
+    #     byday_month_count = byday_month_count.order_by('-count')
+    #
+    #     largest_month = byday_month_count.first()['month']
+    #     largest_month_year = largest_month.year
+    #     largest_month_month = largest_month.month
+    #
+    #     byday_largest_month = ByDay.objects.filter(created_at__month=largest_month_month,
+    #                                                created_at__year=largest_month_year)
+    #
+    #     return byday_largest_month
+
 
 class DetailBy_Day(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.ByDay.objects.all()
@@ -64,6 +82,7 @@ class List(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         instance = serializer.save()
         daily()
+        return instance
 
 
 class Detail(generics.RetrieveUpdateDestroyAPIView):
@@ -78,3 +97,7 @@ class Detail(generics.RetrieveUpdateDestroyAPIView):
     #
     #     serializer = self.get_serializer(instance)
     #     return Response(serializer.data)
+
+
+def index(request):
+    return render(request, 'index.html')

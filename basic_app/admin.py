@@ -13,24 +13,21 @@ class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'is_superuser', 'is_staff', 'is_active')
 
     fieldsets = (
-        (None, {'fields': ('username',
-                           'password', 'is_superuser', 'is_staff', 'is_active')}),
+        (None, {'fields': ('username', 'password', 'is_superuser', 'is_staff', 'is_active')}),
         ('Permissions', {'fields': ('groups',)}),
-        # ('Group Permissions', {
-        # 'classes': ('collapse',),
-        # 'fields': ('groups', 'user_permissions',)
-        # })
+        ('Group Permissions', {'classes': ('collapse',), 'fields': ('user_permissions',)}),
     )
 
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
             'fields': ('username', 'password1', 'password2', 'is_superuser', 'is_staff', 'is_active')
-        }
-         ),
+        }),
     )
 
 
 admin.site.register(models.CustomUser, CustomUserAdmin)
 admin.site.register(models.Student)
 admin.site.register(models.DataStudents)
+admin.site.register(models.Sinf)
+admin.site.register(models.ByDay)
