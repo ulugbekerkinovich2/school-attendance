@@ -4,19 +4,20 @@ import datetime
 from django.db import connections
 
 conn = connections['default']
-import psycopg2 as psycopg2
+
+connections.close_all()
 
 
 def daily():
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM data_students ORDER BY created_at DESC LIMIT 1')
-    row = cursor.fetchone()
+    with connections['default'].cursor() as cursor:
+        cursor.execute('SELECT * FROM data_students ORDER BY created_at DESC LIMIT 1')
+        row = cursor.fetchone()
 
     if row is not None:
         # Extract the necessary information from the record
         created_at, record_id, students_info_json, week, class_id = row
         print(created_at, 'bu yaratildi')
-        created_at_parts = created_at.split('-')
+        created_at_parts = str(created_at).split('-')
         print(created_at_parts, 'shu')
         year, month, day = int(created_at_parts[0]), int(created_at_parts[1]), int(created_at_parts[2])
         print(year, month, day)
@@ -50,11 +51,11 @@ def daily():
         conn.commit()
         cursor.execute("UPDATE data_students SET weekday = ? WHERE id = ?", (week_names[0], record_id))
         conn.commit()
+        conn.close()
 
 
     else:
         print("No records found in data_students table.")
-
 
 # daily()
 

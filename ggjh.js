@@ -10,12 +10,6 @@
 "cleanly": 5,
 "uniform": 4,
 "name": "Ulugbek1 Xudayberganov"
-},
-{
-"absent": true,
-"cleanly": 5,
-"uniform": 4,
-"name": "Ulugbek2 Xudayberganov"
 }
 ]
 
