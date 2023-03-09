@@ -15,7 +15,7 @@ TEMPLATES_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 SECRET_KEY = 'django-insecure-31j&25e^@pe3=f@eh64xx2)c1o+9k^w5hubr3s9&mvtgw$e$*%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -131,23 +131,22 @@ WSGI_APPLICATION = 'davomat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
-    # 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'adminadmin_a73h',
-        'USER': 'adminadmin',
-        'PASSWORD': '4wpGzo4oPAgnjzIkqvHB11GsgUkxYf2W',
-        'HOST': 'dpg-cg425shmbg5d882tlbe0-a.frankfurt-postgres.render.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': '6ulugbekerkinovi$postgres',
+#         'USER': '6ulugbekerkinovi',
+#         'PASSWORD': 'postgres',
+#         'HOST': '6ulugbekerkinovich.mysql.pythonanywhere-services.com',
+#         'PORT': '5432',
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 

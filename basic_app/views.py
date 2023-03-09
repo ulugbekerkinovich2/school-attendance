@@ -7,7 +7,7 @@ from rest_framework import filters
 
 from basic_app import models, serializer
 from basic_app.models import ByDay
-from davomat_ import daily
+from davomat_ import daily, daily_new
 
 
 # Create your views here.
@@ -81,7 +81,7 @@ class List(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         instance = serializer.save()
-        daily()
+        daily_new()
         return instance
 
 
